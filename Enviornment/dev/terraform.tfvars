@@ -47,14 +47,14 @@ pip = {
     name                = "pip-frontend-dev"
     location            = "centralindia"
     resource_group_name = "rg-dev-soumya"
-    allocation_method   = "static"
+    allocation_method   = "Static"
     sku                 = "Basic"
   }
   "backend-pip" = {
     name                = "pip-backend-dev"
     location            = "centralindia"
     resource_group_name = "rg-dev-soumya"
-    allocation_method   = "static"
+    allocation_method   = "Static"
     sku                 = "Basic"
   }
 }
