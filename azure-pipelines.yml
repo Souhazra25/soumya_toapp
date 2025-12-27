@@ -15,7 +15,7 @@ stages:
     - task: TerraformInstaller@1
       displayName: Terraform Install
       inputs:
-        terraformVersion: '1.12.2'
+        terraformVersion: 'latest'
  
     - task: TerraformTaskV4@4
       displayName: Terraform Init
@@ -23,7 +23,7 @@ stages:
         provider: 'azurerm'
         command: 'init'
         workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
-        backendServiceArm: 'soumyadummy'
+        backendServiceArm: 'soumyasp'
         backendAzureRmOverrideSubscriptionID: '18bbb1ca-f79e-49b4-8669-5a1208da00f7'
         backendAzureRmResourceGroupName: 'bhaweshnew'
         backendAzureRmStorageAccountName: 'soumay'
@@ -36,4 +36,4 @@ stages:
         provider: 'azurerm'
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
-        environmentServiceNameAzureRM: 'soumyadummy'
+        environmentServiceNameAzureRM: 'soumyasp'
