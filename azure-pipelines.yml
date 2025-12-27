@@ -25,9 +25,9 @@ stages:
         workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
         backendServiceArm: 'soumyadummy'
         backendAzureRmOverrideSubscriptionID: '18bbb1ca-f79e-49b4-8669-5a1208da00f7'
-        backendAzureRmResourceGroupName: 'rg-terraform-backends'
-        backendAzureRmStorageAccountName: 'tfbackendstorage321'
-        backendAzureRmContainerName: 'tfstate'
+        backendAzureRmResourceGroupName: 'bhaweshnew'
+        backendAzureRmStorageAccountName: 'soumay'
+        backendAzureRmContainerName: 'soumyacontainer'
         backendAzureRmKey: 'soumya.terraform.tfstate'
    
     - task: TerraformTaskV4@4
@@ -37,33 +37,3 @@ stages:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
         environmentServiceNameAzureRM: 'soumyadummy'
-
-
-- stage: TerraformApply
-  displayName: Terraform apply
-  jobs:
-  - job: Terraformapply
-    displayName: ToDo Infra
-    steps:
-
-    - task: TerraformTaskV4@4
-      displayName: Terraform Init
-      inputs:
-        provider: 'azurerm'
-        command: 'init'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
-        backendServiceArm: 'soumyadummy'
-        backendAzureRmOverrideSubscriptionID: '18bbb1ca-f79e-49b4-8669-5a1208da00f7'
-        backendAzureRmResourceGroupName: 'rg-terraform-backends'
-        backendAzureRmStorageAccountName: 'tfbackendstorage321'
-        backendAzureRmContainerName: 'tfstate'
-        backendAzureRmKey: 'soumya.terraform.tfstate'
-    - task: TerraformTask@5
-      displayName: Terraform apply
-      inputs:
-        provider: 'azurerm'
-        command: 'apply'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Environment/dev'
-        commandOptions: '--auto-approve'
-        environmentServiceNameAzureRM: 'soumyadummy'
-        environmentAzureRmOverrideSubscriptionID: '18bbb1ca-f79e-49b4-8669-5a1208da00f7'
