@@ -37,3 +37,16 @@ stages:
         command: 'plan'
         workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
         environmentServiceNameAzureRM: 'soumyasp'
+
+    - task: TerraformTask@5
+      displayName: Terraform apply
+      inputs:
+        provider: 'azurerm'
+        command: 'apply'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
+        commandOptions: '--auto-approve'
+        environmentServiceNameAzureRM: 'soumyasp'
+        environmentAzureRmOverrideSubscriptionID: '18bbb1ca-f79e-49b4-8669-5a1208da00f7'
+
+
+    
