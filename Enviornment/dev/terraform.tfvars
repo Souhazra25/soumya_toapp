@@ -48,20 +48,20 @@ pip = {
     location            = "centralindia"
     resource_group_name = "rg-dev-soumya"
     allocation_method   = "Static"
-    sku                 = "Basic"
+    sku                 = "Standard"
   }
   "backend-pip" = {
     name                = "pip-backend-dev"
     location            = "centralindia"
     resource_group_name = "rg-dev-soumya"
     allocation_method   = "Static"
-    sku                 = "Basic"
+    sku                 = "Standard"
   }
 }
 
 key_vaults = {
   kv1 = {
-    kv_name  = "kv-todo-app-dev"
+    kv_name  = "kv-todo-app-dev-soumya"
     location = "centralindia"
     rg_name  = "rg-dev-soumya"
   }
