@@ -29,24 +29,30 @@ stages:
         backendAzureRmStorageAccountName: 'bhaweshmishra'
         backendAzureRmContainerName: 'soumyacontainer'
         backendAzureRmKey: 'soumya.terraform.tfstate'
-   
-    - task: TerraformTaskV4@4
-      displayName: Terraform Plan
-      inputs:
-        provider: 'azurerm'
-        command: 'plan'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
-        environmentServiceNameAzureRM: 'soumyasp'
+  - job: terraform_scan
+    displayName: terraformscan
+    steps:
+      - task: tfsec@1
+        inputs:
+          version: 'v1.26.0'
+          dir: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
+    # - task: TerraformTaskV4@4
+    #   displayName: Terraform Plan
+    #   inputs:
+    #     provider: 'azurerm'
+    #     command: 'plan'
+    #     workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
+    #     environmentServiceNameAzureRM: 'soumyasp'
 
-    - task: TerraformTask@5
-      displayName: Terraform apply
-      inputs:
-        provider: 'azurerm'
-        command: 'apply'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
-        commandOptions: '--auto-approve'
-        environmentServiceNameAzureRM: 'soumyasp'
-        environmentAzureRmOverrideSubscriptionID: '18bbb1ca-f79e-49b4-8669-5a1208da00f7'
+    # - task: TerraformTask@5
+    #   displayName: Terraform apply
+    #   inputs:
+    #     provider: 'azurerm'
+    #     command: 'apply'
+    #     workingDirectory: '$(System.DefaultWorkingDirectory)/Enviornment/dev'
+    #     commandOptions: '--auto-approve'
+    #     environmentServiceNameAzureRM: 'soumyasp'
+    #     environmentAzureRmOverrideSubscriptionID: '18bbb1ca-f79e-49b4-8669-5a1208da00f7'
 
 
     
