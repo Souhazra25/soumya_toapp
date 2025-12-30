@@ -38,7 +38,7 @@ module "compute" {
 module "sql_server" {
   source          = "../../Modules/azurerm_sql_server"
   sql_server_name = "sql-dev-todoapp-soumya"
-  rg_name         = "rg-todo-app-dev"
+  rg_name         = "rg-dev-soumya"
   location        = "centralindia"
   admin_username  = "admin123"
   admin_password  = "P@ssw01rd@123"
